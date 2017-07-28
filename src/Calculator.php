@@ -21,6 +21,21 @@ class Calculator
         }, range($start, $end));
     }
 
+    public function stage2($start, $end)
+    {
+        return array_map(function ($value) {
+            if ($this->contains($value, 3)){
+                return 'Fizz';
+            }
+
+            if ($this->contains($value, 5)){
+                return 'Buzz';
+            }
+
+            return $value;
+        }, $this->run($start, $end));
+    }
+
     /**
      * @param $value
      *
@@ -39,5 +54,16 @@ class Calculator
     private function isDivisibleBy5($value)
     {
         return $value % 5 === 0;
+    }
+
+    /**
+     * @param $haystack
+     * @param $needle
+     *
+     * @return boolean
+     */
+    private function contains($haystack, $needle)
+    {
+        return preg_match("/" . $needle . "/", $haystack);
     }
 }

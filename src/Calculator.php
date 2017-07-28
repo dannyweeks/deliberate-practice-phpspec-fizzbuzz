@@ -4,16 +4,22 @@ namespace FizzBuzz;
 
 class Calculator
 {
+    /**
+     * @param $start
+     * @param $end
+     *
+     * @return array
+     */
     public function run($start, $end)
     {
         return array_map(function ($value) {
             $overrideString = null;
 
-            if ($this->isDivisibleBy3($value)) {
+            if ($this->isDivisibleBy($value, 3)) {
                 $overrideString .= 'Fizz';
             }
 
-            if ($this->isDivisibleBy5($value)) {
+            if ($this->isDivisibleBy($value, 5)) {
                 $overrideString .= 'Buzz';
             }
 
@@ -21,6 +27,12 @@ class Calculator
         }, range($start, $end));
     }
 
+    /**
+     * @param $start
+     * @param $end
+     *
+     * @return array
+     */
     public function stage2($start, $end)
     {
         return array_map(function ($value) {
@@ -41,19 +53,9 @@ class Calculator
      *
      * @return boolean
      */
-    private function isDivisibleBy3($value)
+    private function isDivisibleBy($value, $by)
     {
-        return $value % 3 === 0;
-    }
-
-    /**
-     * @param $value
-     *
-     * @return boolean
-     */
-    private function isDivisibleBy5($value)
-    {
-        return $value % 5 === 0;
+        return $value % $by === 0;
     }
 
     /**

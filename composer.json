@@ -1,0 +1,20 @@
+{
+    "name": "danny/phpspec-fizzbuzz",
+    "type": "project",
+    "require-dev": {
+        "phpspec/phpspec": "^3.4"
+    },
+    "authors": [
+        {
+            "name": "Danny Weeks",
+            "email": "danny@dannyweeks.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "FizzBuzz\\": "src/"
+        }
+    }
+}

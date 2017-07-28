@@ -7,19 +7,17 @@ class Calculator
     public function run($start, $end)
     {
         return array_map(function ($value) {
-            if ($this->isDivisibleBy3($value) && $this->isDivisibleBy5($value)) {
-                return 'FizzBuzz';
-            }
+            $overrideString = null;
 
             if ($this->isDivisibleBy3($value)) {
-                return 'Fizz';
+                $overrideString .= 'Fizz';
             }
 
             if ($this->isDivisibleBy5($value)) {
-                return 'Buzz';
+                $overrideString .= 'Buzz';
             }
 
-            return $value;
+            return $overrideString ?: $value;
         }, range($start, $end));
     }
 
